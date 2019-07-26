@@ -18,10 +18,12 @@ class UserService{
         return {
             message:'get profile success',
             data: {
+                
                 id: users.id,
+                name: users.name,
                 username: users.username,
-                create: users.create_at,
-                update: users.update_at
+                create: users.created_at,
+                update: users.updated_at
             }
         }
     }

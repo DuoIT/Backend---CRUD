@@ -21,7 +21,22 @@ class IndexService{
             data:product
         }
     }
-
+//search
+    async search(query){
+    const name = query.name;
+    const product = await this.productModel.query().where('name','like','%'+ name +'%');
+    console.log(product);
+        if(!product){
+            return{
+                message:'no_product!',
+                data: null
+            }
+        }
+        return{
+            message:'get_success!',
+            data:product
+        } 
+    }
 }
 
 

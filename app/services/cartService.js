@@ -13,6 +13,7 @@ class CartService {
         const productid = body.id;
         const userid = user.id;
         const qty = parseInt(body.qty);
+        
         if(!productid ||!qty){
             return{
                 message: 'require_not_null!!',
@@ -20,12 +21,13 @@ class CartService {
             }
         }
         const cart = await this.cartModel.query().where({ 'userid': userid, 'productid': productid }).first();
-        if (cart) {
+        if (cart)
+         {
             const olQty = parseInt(cart.qty);
-           // let newQty = olQty + qty;
+            let newQty = olQty + qty;
             const newCart = await this.cartModel.query().where({ 'userid': user.id, 'productid': body.id }).first().update({
-               // qty: newQty
-               qty:qty
+                qty: newQty
+              // qty:qty
             });
             if(!newCart){
                 return{

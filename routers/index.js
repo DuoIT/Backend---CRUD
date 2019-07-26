@@ -12,5 +12,9 @@ router.get('/home',(req, res, next)=>{
     IndexController.getHome({req, res, next});
 })
 
+router.get('/search',(req, res, next)=>{
+    IndexController.search({req, res, next});
+})
+
 
 module.exports = router;

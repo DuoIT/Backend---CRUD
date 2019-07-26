@@ -10,6 +10,12 @@ class IndexController{
         return res.json(result);
 
     }
+//search
+    async search({ req, res, next }){
+        const { query } = req;
+        const result = await this.indexService.search(query);
+        res.json(result);
+    }
 }
 
 module.exports = new IndexController();

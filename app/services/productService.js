@@ -88,13 +88,13 @@ class ProductService {
                 data: null
             }
         }
-        const product = await this.productModel.query().where('name', body.name).first();
-        if(product){
-            return{
-                message: 'product_is_exits',
-                data: null
-            }
-        }
+        // const product = await this.productModel.query().where('name', body.name).first();
+        // if(product){
+        //     return{
+        //         message: 'product_is_exits',
+        //         data: null
+        //     }
+        // }
         const dataProduct = {
             name:      body.name,
             img:       body.img,
